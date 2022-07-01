@@ -1,6 +1,8 @@
 FROM nvcr.io/nvidia/pytorch:22.06-py3
 
-RUN apt install build-essential cmake git libjson-c-dev libwebsockets-dev
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt update
+RUN apt install -y build-essential cmake git libjson-c-dev libwebsockets-dev
 WORKDIR /root
 RUN git clone https://github.com/tsl0922/ttyd.git
 WORKDIR /root/ttyd
